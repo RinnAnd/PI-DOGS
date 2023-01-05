@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Playfair+Display&display=swap');
+
+.card-container {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  width: 18em;
+  height: 24em;
+  perspective: 1000px;
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+
+.card-img {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+}
+
+.card-container:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card-front {
+    background: rgba(0, 0, 0, 0.6);
+    color: aliceblue;
+    font-family: 'Playfair Display';
+}
+
+.card-back {
+    background: rgba(0, 0, 0, 0.6);
+    color: aliceblue;
+    transform: rotateY(180deg);
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    font-family: 'PT Serif', serif;
+}

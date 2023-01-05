@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Playfair+Display&display=swap');
+
+
+
+.landingpage {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;   
+    color: aliceblue;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mylinks {
+    display: flex;
+    position: absolute;
+    transform: translate(-50%, 1000%);
+    gap: 2rem;
+}
+
+.ruts {
+    width: 50px;
+}
+
+.ruts:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}

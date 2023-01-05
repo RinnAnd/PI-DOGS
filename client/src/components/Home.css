@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+.big-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: aliceblue;
+  margin: 10px;
+}
+
+.navig {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clicks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.srch {
+  display: flex;
+}
+
+.dropdowns {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.select-box {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  color: aliceblue;
+  height: 2rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.loader {
+  align-self: center;
+  justify-self: center;
+  color: aliceblue;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 1000px) {
+  .big-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .big-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 10px;
+  }
+  .dropdowns {
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .big-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 10px;
+  }
+}
