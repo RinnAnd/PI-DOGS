@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./SearchBar.css";
 import { dogByName } from "../actions/actions";
 
-const SearchBar = () => {
+const SearchBar = ({ paging }) => {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
 
@@ -15,6 +15,7 @@ const SearchBar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(dogByName(text));
+    paging(1)
     setText("");
   };
 

@@ -74,7 +74,7 @@ const Home = () => {
   return (
     <div>
       <div className="header">
-      <h1>Get Doggy</h1>
+      <h1>Dogstagram</h1>
       <div className="navig">
         <div className="clicks">
         <Link to='/createdog' className="link">
@@ -83,7 +83,7 @@ const Home = () => {
       <Btn text={'Reload dogs'} onClick={e => handleClick(e)}/>
       </div>
       <div className="srch">
-      <SearchBar />
+      <SearchBar paging={paging} />
       </div>
       </div>
       </div>
@@ -116,6 +116,7 @@ const Home = () => {
             return (
               <>
                 <Card
+                  id={el.id}
                   name={el.name}
                   image={el.image}
                   temper={el.temper}

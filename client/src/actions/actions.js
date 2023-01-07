@@ -41,6 +41,20 @@ export const dogByName = (payload) => {
   }
 }
 
+export const dogID = (payload) => {
+  return async (dispatch) => {
+    try {
+      const json = await axios.get(`http://localhost:3001/dogs/${payload}`)
+      return dispatch({
+        type: 'GET_ID',
+        payload: json.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 export const orderAlphabetically = (payload) => {
   return {
     type: 'ORDER_ABC',

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Condensed&display=swap');
+
+.conteiner {
+  margin: 20px;
+  border: solid 2px #dbdbdb;
+  max-width: 650px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  color: #dbdbdb;
+  overflow: hidden;
+  font-family: "Dancing Script";
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.button {
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+}
+
+
+.pic {
+  width: 100%;
+}

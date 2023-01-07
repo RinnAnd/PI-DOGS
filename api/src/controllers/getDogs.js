@@ -33,7 +33,7 @@ const getDogsApi = async () => {
 
 const dogsDatB = async () => {
     try {
-      const inst = await Dog.findAll({ include: { all: true, nested: true }});
+      const inst = await Dog.findAll({ include: { all: true, nested: true }}); //Fetch all models associated with User and their nested associations (recursively)
       const data = JSON.parse(JSON.stringify(inst))
       if(data === null) {
         return []

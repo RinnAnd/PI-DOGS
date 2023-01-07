@@ -2,6 +2,7 @@ const initialState = {
   dogs: [],
   dogsCopy: [],
   tempers: [],
+  detail: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -22,6 +23,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: action.payload,
       };
+    case 'GET_ID':
+      return {
+        ...state,
+        detail: action.payload
+      }
     case "ORDER_ABC":
         const sorted = action.payload === 'A' ? state.dogs.sort((a, b) => {
             if (a.name > b.name) {
