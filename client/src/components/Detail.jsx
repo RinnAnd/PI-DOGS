@@ -3,23 +3,28 @@ import { useDispatch, useSelector } from 'react-redux'
 import './Detail.css'
 import Btn from "./Btn";
 import { Link, useParams } from 'react-router-dom';
-import { dogID } from '../actions/actions';
+import { dogID, clearDetail } from '../actions/actions';
+
 
 
 
 const Detail = () => {
-    const dogsID = useSelector((state) => state.detail)
     const dispatch = useDispatch()
+    const dogsID = useSelector((state) => state.detail)
     const { id } = useParams()
     useEffect(() => {
         dispatch(dogID(id));
     },[dispatch,id])
+    
+    const goBack = () => {
+        dispatch(clearDetail())
+    }
 
   return (
     <div className="conteiner">
         <div className="button">
         <Link to='/home' className='link'>
-        <Btn text={'Go back'} />
+        <Btn text={'Go back'} onClick={goBack} />
         </Link>
         <button className='btn'>❤️</button>
         </div>
@@ -39,4 +44,4 @@ const Detail = () => {
   )
 }
 
-export default Detail
+export default Detail;

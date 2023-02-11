@@ -21,6 +21,7 @@ export const dogsTemper = () => {
 }
 
 export const postDog = (payload) => {
+  console.log(payload)
   return async () => {
     const json = await axios.post('http://localhost:3001/dogs', payload);
     return json
@@ -52,6 +53,12 @@ export const dogID = (payload) => {
     } catch (error) {
       console.log(error)
     }
+  }
+}
+
+export const clearDetail = () => {
+  return {
+    type: 'CLEAR_DETAIL'
   }
 }
 
