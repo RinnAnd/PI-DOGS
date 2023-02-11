@@ -1,0 +1,45 @@
+.fav-container {
+     display: flex;
+     justify-content: flex-start;
+     background-color: rgba(0, 0, 0, 0.7);
+     padding: 0.6rem;
+     border-radius: 10px;
+}
+
+.nav-nav {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     gap: 0.6rem;
+}
+
+.nav-box {
+     display: flex;
+     flex-direction: column;
+     width: 6rem;
+}
+
+.nav-name {
+     color: white;
+     font-size: 0.6rem;
+}
+
+.nav-img {
+     border-radius: 50%;
+     border: solid 2px white;
+     height: 4rem;
+     object-fit: cover;
+}
+
+.remove-btn {
+     background-color: transparent;
+     border: none;
+     color: red;
+     font-size: 0.6rem;
+     cursor: pointer;
+     transition: 0.4s;
+}
+
+.remove-btn:hover {
+     transform: translateY(1px);
+}

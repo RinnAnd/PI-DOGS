@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './Detail.css'
 import Btn from "./Btn";
 import { Link, useParams } from 'react-router-dom';
-import { dogID, clearDetail } from '../actions/actions';
+import { dogID, clearDetail, addFavorite } from '../actions/actions';
 
 
 
@@ -20,17 +20,21 @@ const Detail = () => {
         dispatch(clearDetail())
     }
 
+    const handleAdd = (e) => {
+        dispatch(addFavorite(e))
+    }
+
   return (
     <div className="conteiner">
         <div className="button">
         <Link to='/home' className='link'>
         <Btn text={'Go back'} onClick={goBack} />
         </Link>
-        <button className='btn'>❤️</button>
+        <button className='btn' onClick={() => handleAdd(dogsID)}>❤️</button>
         </div>
         {dogsID && dogsID.map(d => {
             return (
-                <div>
+                <div key={d.id}>
                 <h1>{d.name}</h1>
                 <img src={d.image} alt='not found' className='pic'/>
                 {Array.isArray(d.temper) ? <h2>{d.temper.join(', ')}</h2> : <h2>{d.temper}</h2>}

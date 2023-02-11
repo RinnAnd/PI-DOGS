@@ -16,13 +16,15 @@ import Paging from "./Paging";
 import SearchBar from "./SearchBar";
 import Loader from "./Loader";
 import Btn from "./Btn";
+import Favorites from "./Favorites";
 
 const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs);
   const allTempers = useSelector((state) => state.tempers);
+  const favorites = useSelector(state => state.favorites)
   const [currentPage, setCurrentPage] = useState(1);
-  const [dogsPerPage, ] = useState(8);
+  const [dogsPerPage] = useState(8);
   const indexLastDog = currentPage * dogsPerPage;
   const indexFirstDog = indexLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexFirstDog, indexLastDog);
@@ -38,7 +40,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(dogsTemper());
-  }, [dispatch])
+  }, [dispatch]);
 
   function handleClick(e) {
     e.preventDefault();
@@ -66,28 +68,30 @@ const Home = () => {
 
   function handleSelector(e) {
     e.preventDefault();
-    setCurrentPage(1)
-    dispatch(filterTempers(e.target.value))
-    setOrder(`Ordered ${e.target.value}`)
+    setCurrentPage(1);
+    dispatch(filterTempers(e.target.value));
+    setOrder(`Ordered ${e.target.value}`);
   }
 
   return (
     <div>
       <div className="header">
-      <h1>Dogstagram</h1>
-      <div className="navig">
-        <div className="clicks">
-        <Link to='/createdog' className="link">
-        <Btn text={'Create a Dog'}/>
-      </Link>
-      <Btn text={'Reload dogs'} onClick={e => handleClick(e)}/>
-      </div>
-      <div className="srch">
-      <SearchBar paging={paging} />
-      </div>
-      </div>
-      </div>
-      <nav className="dropdowns">
+        <h1>Dogstagram</h1>
+        <div className="navig">
+          <div className="clicks">
+            <Link to="/createdog" className="link">
+              <Btn text={"Create a Dog"} />
+            </Link>
+            <Btn text={"Reload dogs"} onClick={(e) => handleClick(e)} />
+          </div>
+          <div className="srch">
+            <SearchBar paging={paging} />
+          </div>
+        </div>
+      </div>{
+        favorites.length ?
+      <Favorites /> : <></>
+}      <nav className="dropdowns">
         <select className="select-box" onChange={(e) => handleABC(e)}>
           <option value="A">A to Z</option>
           <option value="Z">Z to A</option>
@@ -97,12 +101,14 @@ const Home = () => {
           <option value="heavy">Heaviest to lightest</option>
         </select>
         <select className="select-box" onChange={(e) => handleSelector(e)}>
-          <option value='All'>All tempers</option>
-          {allTempers.map(tem => {
-              return (
-                <option value={tem.name} key={tem.id}>{tem.name}</option>
-                )
-              })}
+          <option value="All">All tempers</option>
+          {allTempers.map((tem) => {
+            return (
+              <option value={tem.name} key={tem.id}>
+                {tem.name}
+              </option>
+            );
+          })}
         </select>
         <select className="select-box" onChange={(e) => handleCreatedFilter(e)}>
           <option value="all">All dogs</option>

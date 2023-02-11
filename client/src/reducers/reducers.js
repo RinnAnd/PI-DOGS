@@ -3,6 +3,7 @@ const initialState = {
   dogsCopy: [],
   tempers: [],
   detail: [],
+  favorites: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -85,6 +86,23 @@ function rootReducer(state = initialState, action) {
         ...state,
         dogs: filter,
       };
+    case 'ADD_FAVORITE':
+      const newDog = state.favorites.find(el => el.id === action.payload[0].id)
+      if (newDog) {
+        return {
+          ...state,
+          favorites: [...state.favorites]
+        }
+      }
+      return {
+        ...state,
+        favorites: [...state.favorites, action.payload[0]]
+      }
+    case 'REMOVE_FAVORITE':
+      return {
+        ...state,
+        favorites: state.favorites.filter(e => e.id !== action.payload)
+      }
     case "FILTER_CREATED":
       const createdDogs = state.dogsCopy;
       const createdFilterer =
