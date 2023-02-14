@@ -11,7 +11,6 @@ const Favorites = () => {
   const dispatch = useDispatch()
   
   const handleRemove = (e) => {
-     console.log(e)
      dispatch(removeFavorite(e))
   }
 

@@ -26,7 +26,7 @@
 
 .nav-img {
      border-radius: 50%;
-     border: solid 2px white;
+     border: solid 4px white;
      height: 4rem;
      object-fit: cover;
 }
